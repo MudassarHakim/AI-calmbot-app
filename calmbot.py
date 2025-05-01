@@ -20,9 +20,11 @@ dynamic_parts = {
             "It's alright to feel a bit off or uninterested."
         ],
         "guidance": [
-            "Maybe take a small walk or stretch a little.",
-            "Let’s breathe deeply and reconnect with this moment.",
-            "Try noticing something small and new around you."
+            "Try something playful — maybe doodle or dance to one song.",
+            "How about starting a tiny project, even if it’s silly?",
+            "Call a friend or write down three weird ideas — just for fun.",
+            "Even a small change of environment — like moving to a window — can shift things.",
+            "Think of one thing you’ve always wanted to try — maybe today’s the day to explore it!"
         ]
     },
     "anger": {
