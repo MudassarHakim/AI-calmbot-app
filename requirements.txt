@@ -1,0 +1,3 @@
+streamlit
+transformers
+torch  # Transformers requires PyTorch (or TensorFlow). Most models use PyTorch.
