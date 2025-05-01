@@ -111,6 +111,19 @@ dynamic_parts = {
     }
 }
 
+# Manual override for boredom detection
+def detect_emotion_with_override(text):
+    bored_keywords = ["bored", "boring", "dull", "tedious", "monotonous", "uninspired", "nothing to do"]
+    lowered = text.lower()
+    if any(kw in lowered for kw in bored_keywords):
+        return "bored"
+    try:
+        result = emotion_model(text)[0]
+        return result['label'].lower()
+    except Exception:
+        return "neutral"
+
+
 # Generate calm response
 def generate_response(emotion):
     parts = dynamic_parts.get(emotion, dynamic_parts["neutral"])
@@ -123,11 +136,7 @@ st.title("🌿 CalmBot – Your Emotional Support Companion")
 user_input = st.text_input("Tell me how you're feeling right now:")
 
 if user_input:
-    try:
-        emotion_result = emotion_model(user_input)[0]
-        emotion = emotion_result['label'].lower()
-    except Exception:
-        emotion = "neutral"
+    emotion = detect_emotion_with_override(user_input)
 
     calm_reply = generate_response(emotion)
 
