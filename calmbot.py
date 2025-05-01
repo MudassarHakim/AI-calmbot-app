@@ -13,6 +13,18 @@ emotion_model = load_model()
 
 # Response dictionary
 dynamic_parts = {
+    "bored": {
+        "prefix": [
+            "Feeling stuck or uninspired is okay.",
+            "Boredom can be a gentle nudge for change.",
+            "It's alright to feel a bit off or uninterested."
+        ],
+        "guidance": [
+            "Maybe take a small walk or stretch a little.",
+            "Let’s breathe deeply and reconnect with this moment.",
+            "Try noticing something small and new around you."
+        ]
+    },
     "anger": {
         "prefix": [
             "That sounds really frustrating.",
