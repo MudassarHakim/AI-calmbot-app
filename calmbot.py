@@ -106,7 +106,7 @@ def generate_response(emotion):
 
 # Web app layout
 st.set_page_config(page_title="CalmBot+", page_icon="🌿")
-st.title("🌿 CalmBot+ – Your Emotional Support Companion")
+st.title("🌿 CalmBot – Your Emotional Support Companion")
 
 user_input = st.text_input("Tell me how you're feeling right now:")
 
