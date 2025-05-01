@@ -114,16 +114,35 @@ dynamic_parts = {
 }
 
 # Manual override for boredom detection
-def detect_emotion_with_override(text):
-    bored_keywords = ["bored", "boring", "dull", "tedious", "monotonous", "uninspired", "nothing to do"]
+def detect_emotion_with_keywords(text):
     lowered = text.lower()
-    if any(kw in lowered for kw in bored_keywords):
-        return "bored"
+
+    # Ego triggers
+    ego_keywords = [
+        "ego", "pride", "arrogant", "disrespect", "self-respect",
+        "how dare", "they should respect", "better than", "insulted",
+        "humiliated", "undermined", "they think i'm stupid", "they don't value me"
+    ]
+
+    # Revenge triggers
+    revenge_keywords = [
+        "revenge", "get back", "retaliate", "hurt them", "make them pay",
+        "teach them a lesson", "they’ll regret", "vengeful", "punish them",
+        "karma will get", "payback", "settle the score"
+    ]
+
+    if any(kw in lowered for kw in revenge_keywords):
+        return "revenge"
+    if any(kw in lowered for kw in ego_keywords):
+        return "ego"
+
+    # Fallback to model
     try:
-        result = emotion_model(text)[0]
-        return result['label'].lower()
-    except Exception:
+        emotion_result = emotion_model(text)[0]
+        return emotion_result['label'].lower()
+    except:
         return "neutral"
+
 
 
 # Generate calm response
