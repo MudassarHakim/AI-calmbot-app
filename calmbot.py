@@ -114,7 +114,7 @@ dynamic_parts = {
 }
 
 # Manual override for boredom detection
-def detect_emotion_with_keywords(text):
+def detect_emotion_with_override(text):
     lowered = text.lower()
 
     # Ego triggers
